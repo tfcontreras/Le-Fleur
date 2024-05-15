@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Fleur</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        header, nav, main, footer {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            background-color: #9b663ac4;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            margin-bottom: 20px; /* Ajuste para reducir la distancia con la sección de contacto */
+        }
+
+        .producto {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilos de los productos */
+        .producto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        /* Estilo del título con Times New Roman */
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            background-image: url('titulo_background.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover; /* Tamaño de la imagen de fondo */
+            color: #fff; /* Color del texto */
+            padding: 20px; /* Espaciado interno */
+            margin: 0; /* Elimina el margen por defecto */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+            border-radius: 10px; /* Borde redondeado */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Estilo para las imágenes de fondo */
+        .background-images {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+            animation: changeBackground 30s infinite; /* Animación para cambiar las imágenes de fondo */
+        }
+
+        /* Animación para cambiar las imágenes de fondo */
+        @keyframes changeBackground {
+            0% {background-image: url('nro 1 .jpeg');}
+            10% {background-image: url('nro 1 .jpeg');}
+            20% {background-image: url('nro 2.jpeg');}
+            30% {background-image: url('nro 3 .jpeg');}
+            40% {background-image: url('nro 4 .jpeg');}
+            50% {background-image: url('nro 5.jpeg');}
+            60% {background-image: url('nro 6.jpeg');}
+            70% {background-image: url('nro 7 .jpeg');}
+            80% {background-image: url('nro 9.jpeg');}
+            90% {background-image: url('nro 8.jpeg');}
+            100% {background-image: url('nro 8.jpeg');}
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media only screen and (max-width: 600px) {
+            .catalogo {
+                grid-template-columns: 1fr; /* Una columna en dispositivos móviles */
+            }
+        }
+
+        /* Estilos de la sección de contacto */
+        .contacto {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contacto h2 {
+            margin-bottom: 20px;
+        }
+
+        .contacto p {
+            font-size: 18px;
+        }
+
+        .contacto form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contacto input[type="text"], .contacto input[type="email"], .contacto textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .contacto input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contacto input[type="submit"]:hover {
+            background-color: #666;
+        }
+
+        /* Estilos para la sección de título */
+        .titulo-seccion {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Le Fleur</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="background-images"></div> <!-- Contenedor para las imágenes de fondo -->
+        <section id="inicio">
+            <div class="titulo-seccion">
+                <h2>¡Bienvenido a nuestra tienda online!</h2>
+                <p>Encuentra los mejores productos al mejor precio.</p>
+            </div>
+            <!-- Contenido de la sección Inicio -->
+        </section>
+        <section id="productos" class="catalogo">
+            <div class="producto">
+                <img src="Producto 1.jpeg" alt="Producto 1">
+                <h3>Producto 1</h3>
+                <p>Descripción del Producto 1</p>
+                <p class="precio">$100</p>
+                <button>Añadir al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="Producto 2.jpeg" alt="Producto 2">
+                <h3>Producto 2</h3>
+                <p>Descripción del Producto 2</p>
+                <p class="precio">$150</p>
+                <button>Añadir al Carrito</button>
+            </div>
+            <div class="producto">
+              <img src="f1f26d94-9cec-4ef5-9fa9-235f84b42cba.jpeg" alt="Producto 2">
+              <h3>Producto 2</h3>
+              <p>Descripción del Producto 2</p>
+              <p class="precio">$150</p>
+              <button>Añadir al Carrito</button>
+          </div>
+            <!-- Contenido de la sección Productos -->
+        </section>
+        <!-- Agrega más contenido para hacer la página más larga -->
+        <div style="height: 1000px;"></div>
+        
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="contacto">
+            <div class="titulo-seccion">
+                <h2>Contacta con nosotros</h2>
+                <p>Gmail: LeFleur@gmail.colum
+                    <br>Tel:1123669529
+                    
+                </p>
+            </div>
+            <!-- Contenido de la sección Contacto -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Fabrizzio Contreras - Ainara Santiensanio -Mateo Gonzalez - Luciano Cuello - Bianca Cardozo </p>
+    </footer>
+
+    <!-- Script para prevenir el parpadeo de la animación -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.background-images').style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
